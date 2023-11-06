@@ -1,0 +1,75 @@
+{% extends "layouts.html" %}
+
+{% load static %}
+
+
+{% block body %}
+    <div class="container">
+        <h2 class=" mt-5">Student - Tabular</h2>
+    <table class = "table mt-2">
+    <thread>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+             <th scope="col">Email</th>
+             <th scope="col">Age</th>
+             <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thread>
+
+    <tbody>
+    # go inside the key (data) and equate and entry found to x
+
+    {% for x in data %}
+
+        <tr>
+            <th scope="row">{{ x.id }}  </th>
+            <td>{{ x.name }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.age }}</td>
+            <td>
+                <img src="media/{{ x.image }}" alt ="{{ x.name }}" width="100">
+            </td>
+            <td>
+               <a class="btn btn-warning" href="" >Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="" >Delete</a>
+            </td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+{#    display data as in Jumia #}
+    <h2 class=" mt-5">Student - Grids</h2>
+
+    <div class="row">
+        {% for x in data %}
+        <div class="col-md-3">
+
+       <div class="card" style="width: 18rem;">
+            <img src="media/{{ x.image }}" class="card-img-top" alt="{{ x.name }}">
+                <div class="card-body">
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+       </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+        </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
